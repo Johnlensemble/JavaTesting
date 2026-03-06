@@ -71,7 +71,7 @@ class InventoryControllerTest {
 
         mockMvc.perform(put("/api/items/" + created.id()))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(updated)))
+                        .content(objectMapper.writeValueAsString(updated))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("New"))
                 .andExpect(jsonPath("$.quantity").value(99));
