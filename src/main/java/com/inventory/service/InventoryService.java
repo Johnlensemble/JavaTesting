@@ -17,9 +17,9 @@ public class InventoryService {
 
     public Item create(Item item) {
         long id = idGenerator.getAndIncrement();
-        item.setId(id);
-        store.put(id, item);
-        return item;
+        var saved = new Item(id, item.name(), item.quantity(), item.price());
+        store.put(id, saved);
+        return saved;
     }
 
     public Optional<Item> getById(Long id) {
@@ -31,12 +31,9 @@ public class InventoryService {
     }
 
     public Optional<Item> update(Long id, Item updated) {
-        return Optional.ofNullable(store.computeIfPresent(id, (key, existing) -> {
-            existing.setName(updated.getName());
-            existing.setQuantity(updated.getQuantity());
-            existing.setPrice(updated.getPrice());
-            return existing;
-        }));
+        return Optional.ofNullable(store.computeIfPresent(id, (key, existing) ->
+                new Item(key, updated.name(), updated.quantity(), updated.price())
+        ));
     }
 
     public boolean delete(Long id) {
