@@ -44,7 +44,7 @@ class InventoryControllerTest {
     void getById_returns200() throws Exception {
         Item created = createItem("Gadget", 5, "4.50");
 
-        mockMvc.perform(get("/api/items/" + created.getId()))
+        mockMvc.perform(get("/api/items/" + created.id()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Gadget"));
     }
@@ -69,7 +69,7 @@ class InventoryControllerTest {
         Item created = createItem("Old", 1, "1.00");
         Item updated = new Item(null, "New", 99, new BigDecimal("5.00"));
 
-        mockMvc.perform(put("/api/items/" + created.getId())
+        mockMvc.perform(put("/api/items/" + created.id())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(updated)))
                 .andExpect(status().isOk())
@@ -89,7 +89,7 @@ class InventoryControllerTest {
     void deleteItem_returns204() throws Exception {
         Item created = createItem("ToDelete", 1, "1.00");
 
-        mockMvc.perform(delete("/api/items/" + created.getId()))
+        mockMvc.perform(delete("/api/items/" + created.id()))
                 .andExpect(status().isNoContent());
     }
 

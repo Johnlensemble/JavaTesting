@@ -24,9 +24,9 @@ class InventoryServiceTest {
         Item item = new Item(null, "Widget", 10, new BigDecimal("9.99"));
         Item created = service.create(item);
 
-        assertNotNull(created.getId());
-        assertEquals("Widget", created.getName());
-        assertEquals(10, created.getQuantity());
+        assertNotNull(created.id());
+        assertEquals("Widget", created.name());
+        assertEquals(10, created.quantity());
     }
 
     @Test
@@ -36,7 +36,7 @@ class InventoryServiceTest {
         Optional<Item> found = service.getById(created.getId());
 
         assertTrue(found.isPresent());
-        assertEquals("Widget", found.get().getName());
+        assertEquals("Widget", found.get().name());
     }
 
     @Test
@@ -62,22 +62,22 @@ class InventoryServiceTest {
         Optional<Item> result = service.update(created.getId(), updated);
 
         assertTrue(result.isPresent());
-        assertEquals("New", result.get().getName());
-        assertEquals(99, result.get().getQuantity());
-        assertEquals(new BigDecimal("5.00"), result.get().getPrice());
+        assertEquals("New", result.get().name());
+        assertEquals(99, result.get().quantity());
+        assertEquals(new BigDecimal("5.00"), result.get().price());
     }
 
     @Test
     void update_returnsEmptyForMissingId() {
-        assertFalse(service.update(999L, new Item()).isPresent());
+        assertFalse(service.update(999L, new Item(null, null, 0, null)).isPresent());
     }
 
     @Test
     void delete_removesItem() {
         Item created = service.create(new Item(null, "Widget", 1, BigDecimal.ONE));
 
-        assertTrue(service.delete(created.getId()));
-        assertFalse(service.getById(created.getId()).isPresent());
+        assertTrue(service.delete(created.id()));
+        assertFalse(service.getById(created.id()).isPresent());
     }
 
     @Test
