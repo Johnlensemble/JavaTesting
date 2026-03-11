@@ -22,43 +22,42 @@ Below is your content rewritten into **clean, structured, readable Markdown**, w
 # Quick Map of the Most Impactful Changes Since Java 8 (OpenJDK‑only Sources)
 
 *   **Modules (JDK 9)**: Java Platform Module System (JPMS) for strong encapsulation and custom runtime images.  
-    *Source: openjdk.org*
+    
 
 *   **JShell (JDK 9)**: official Java REPL for rapid experiments.  
-    *Source: openjdk.org*
+    
 
 *   **`var` (JDK 10)**: local-variable type inference.  
-    *Source: openjdk.org*
+    
 
 *   **HTTP Client (JDK 11)**: standard `java.net.http` with HTTP/2 and async APIs.  
-    *Source: openjdk.org*
+    
 
 *   **Switch expressions (JDK 14)**: concise, expression‑based `switch`.  
-    *Source: openjdk.org*
+    
 
 *   **Text blocks (JDK 15)**: multi-line string literals (`"""`).  
-    *Source: openjdk.org*
+    
 
 *   **Records (JDK 16)**: concise, immutable data carriers.  
-    *Source: openjdk.org*
+    
 
 *   **Pattern matching for `instanceof` (JDK 16)**: test + bind in one step.  
-    *Source: openjdk.org*
+    
 
 *   **Sealed classes (JDK 17)**: restrict who can extend/implement.  
-    *Source: openjdk.org*
+    
 
 *   **Pattern matching for `switch` (JDK 21)** and **Record patterns (JDK 21)**: data‑centric control flow and deconstruction.  
-    *Sources: openjdk.org, openjdk.org*
 
 *   **Virtual Threads (JDK 21)**: lightweight threads for massive concurrency (Project Loom).  
-    *Source: openjdk.org*
+    
 
 *   **Sequenced Collections (JDK 21)**: consistent first/last/reversed APIs across collections.  
-    *Source: openjdk.org*
+    
 
 *   **UTF‑8 by default (JDK 18)**: predictable text I/O across platforms.  
-    *Source: openjdk.org*
+    
 
 ***
 
@@ -67,7 +66,7 @@ Below is your content rewritten into **clean, structured, readable Markdown**, w
 ## `var` — Local‑Variable Type Inference (JDK 10)
 
 Declutter locals while keeping static typing.  
-*Source: openjdk.org*
+
 
 ```java
 var map = new java.util.HashMap<String, Integer>(); // infers HashMap<String,Integer>
@@ -81,7 +80,7 @@ for (var e : map.entrySet()) {
 ## Switch Expressions (JDK 14)
 
 Use `switch` as an expression; arrow labels, `yield` when needed.  
-*Source: openjdk.org*
+
 
 ```java
 int len = switch (day) {
@@ -97,7 +96,7 @@ int len = switch (day) {
 ## Text Blocks `"""` (JDK 15)
 
 Multi‑line strings for JSON/SQL/HTML, fewer escapes.  
-*Source: openjdk.org*
+
 
 ```java
 String json = """
@@ -110,7 +109,7 @@ String json = """
 ## Records (JDK 16)
 
 One‑line value types; canonical ctor, accessors, `equals/hashCode/toString` auto‑generated.  
-*Source: openjdk.org*
+
 
 ```java
 public record User(String id, String email) {}
@@ -121,7 +120,7 @@ public record User(String id, String email) {}
 ## Pattern Matching for `instanceof` (JDK 16)
 
 Eliminate the `instanceof + cast` boilerplate.  
-*Source: openjdk.org*
+
 
 ```java
 if (obj instanceof String s) {
@@ -134,7 +133,7 @@ if (obj instanceof String s) {
 ## Sealed Classes & Interfaces (JDK 17)
 
 Close a hierarchy to a known set of subtypes—great with pattern matching.  
-*Source: openjdk.org*
+
 
 ```java
 sealed interface Shape permits Circle, Rectangle {}
@@ -147,7 +146,7 @@ record Rectangle(int w, int h) implements Shape {}
 ## Pattern Matching for `switch` (JDK 21)
 
 Switch on any reference type; use type patterns, guards, and handle `null`.  
-*Source: openjdk.org*
+
 
 ```java
 static String describe(Object o) {
@@ -165,7 +164,7 @@ static String describe(Object o) {
 ## Record Patterns (JDK 21)
 
 Deconstruct records inline in `instanceof`/`switch`.  
-*Source: openjdk.org*
+
 
 ```java
 record Point(int x, int y) {}
@@ -182,7 +181,7 @@ int sum(Object o) {
 ## Virtual Threads (JDK 21)
 
 Massively increase concurrency with thread‑per‑task style, ideal for I/O‑bound servers.  
-*Source: openjdk.org*
+
 
 ```java
 try (var exec = java.util.concurrent.Executors.newVirtualThreadPerTaskExecutor()) {
@@ -199,7 +198,7 @@ try (var exec = java.util.concurrent.Executors.newVirtualThreadPerTaskExecutor()
 ## Generational ZGC (JDK 21)
 
 ZGC adds generations to reduce stalls/overhead while preserving ultra‑low pauses.  
-*Source: openjdk.org*
+
 
 ***
 
@@ -208,7 +207,7 @@ ZGC adds generations to reduce stalls/overhead while preserving ultra‑low paus
 ## HTTP Client (JDK 11)
 
 Modern `java.net.http` with HTTP/2, sync/async, and reactive streams; replaces `HttpURLConnection`.  
-*Source: openjdk.org*
+
 
 ```java
 var client = java.net.http.HttpClient.newHttpClient();
@@ -222,7 +221,7 @@ System.out.println(res.statusCode());
 ## Sequenced Collections (JDK 21)
 
 New `SequencedCollection`, `SequencedSet`, and `SequencedMap` unify ordering operations.  
-*Source: openjdk.org*
+
 
 ```java
 var list = new java.util.ArrayList<>(java.util.List.of("a","b","c"));
@@ -241,14 +240,14 @@ Try APIs and language snippets interactively:
 jshell
 ```
 
-*Source: openjdk.org*
+
 
 ***
 
 ## UTF‑8 by Default (JDK 18)
 
 Default charset standardized to UTF‑8, improving cross-platform consistency.  
-*Source: openjdk.org*
+
 
 ***
 
@@ -257,7 +256,7 @@ Default charset standardized to UTF‑8, improving cross-platform consistency.
 ## Modules (JPMS)
 
 Adopt modules for strong encapsulation; use `module-info.java` and tools like `jlink` for optimized runtime images.  
-*Source: openjdk.org*
+
 
 ```java
 // module-info.java
@@ -292,7 +291,6 @@ double area(Object s) {
 ### After (Java 21)
 
 Records + sealed classes + pattern matching for `switch` + record patterns.  
-*Sources: openjdk.org, openjdk.org, openjdk.org*
 
 ```java
 sealed interface Shape permits Circle, Rectangle {}
