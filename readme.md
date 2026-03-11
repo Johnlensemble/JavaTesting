@@ -19,7 +19,7 @@ Below is your content rewritten into **clean, structured, readable Markdown**, w
 
 ***
 
-# Quick Map of the Most Impactful Changes (OpenJDK‑only Sources)
+# Quick Map of the Most Impactful Changes Since Java 8 (OpenJDK‑only Sources)
 
 *   **Modules (JDK 9)**: Java Platform Module System (JPMS) for strong encapsulation and custom runtime images.  
     *Source: openjdk.org*
