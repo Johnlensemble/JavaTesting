@@ -23,8 +23,6 @@ Windows
 
 
 
-Below is your content rewritten into **clean, structured, readable Markdown**, while keeping everything intact.
-
 ***
 
 # Quick Map of the Most Impactful Changes Since Java 8 (OpenJDK‑only Sources)
