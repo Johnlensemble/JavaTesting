@@ -4,13 +4,21 @@ Install Java (https://www.java.com/en/download/manual.jsp java 8 for example)
 
 Maven provides the spring-boot:run goal.
 Check if installed:
+
     mvn -version
+
 If not installed:
+
 macOS
+
     brew install maven
+
 Ubuntu/Debian
+
     sudo apt install maven
+
 Windows
+
     Download Maven ZIP from the Apache site and add bin to PATH.
 
 
