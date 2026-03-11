@@ -313,4 +313,13 @@ double area(Shape s) {
 
 ***
 
-If you'd like, I can also turn this into a **PDF**, **GitHub README**, or a **cheat‑sheet style poster**.
+### Example calls 
+
+# Create an item
+curl -X POST http://localhost:8080/api/items -H "Content-Type: application/json" -d '{"name": "Widget", "quantity": 50, "price": 9.99}'
+
+# Get all items
+curl http://localhost:8080/api/items
+
+# Get a specific item by ID (use the id from the POST response)
+curl http://localhost:8080/api/items/1
